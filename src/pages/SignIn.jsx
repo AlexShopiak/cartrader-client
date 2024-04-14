@@ -26,6 +26,7 @@ export default function SignIn() {
       const res = await fetch('https://cartrader-api.onrender.com/api/auth/signin', {
         credentials: 'include',
         method: 'POST',
+        mode: 'no-cors', //toremove
         headers: {
           'Content-Type': 'application/json',
         },
