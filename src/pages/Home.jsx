@@ -12,8 +12,7 @@ export default function Home() {
   const [rentListings, setRentListings] = useState([]);
 
   ////
-  const storedConsent = localStorage.getItem('cookieConsent');
-  alert("CONSENT", storedConsent);
+  localStorage.setItem('cookieConsent', 'true');
   ////
   SwiperCore.use([Navigation]);
   console.log(offerListings);
