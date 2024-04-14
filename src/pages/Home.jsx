@@ -10,10 +10,6 @@ export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
-
-  ////
-  localStorage.setItem('cookieConsent', 'true');
-  ////
   SwiperCore.use([Navigation]);
   console.log(offerListings);
   useEffect(() => {
