@@ -133,6 +133,7 @@ export default function CreateListing() {
       setLoading(true);
       setError(false);
       const res = await fetch('https://cartrader-api.onrender.com/api/listing/create', {
+        credentials: 'include',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

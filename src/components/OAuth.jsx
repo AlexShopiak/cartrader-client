@@ -15,6 +15,7 @@ export default function OAuth() {
       const result = await signInWithPopup(auth, provider);
 
       const res = await fetch('https://cartrader-api.onrender.com/api/auth/google', {
+        credentials: 'include',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

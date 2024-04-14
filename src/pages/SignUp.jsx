@@ -18,6 +18,7 @@ export default function SignUp() {
     try {
       setLoading(true);
       const res = await fetch('https://cartrader-api.onrender.com/api/auth/signup', {
+        credentials: 'include',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

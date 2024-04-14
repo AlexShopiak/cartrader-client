@@ -24,6 +24,7 @@ export default function SignIn() {
     try {
       dispatch(signInStart());
       const res = await fetch('https://cartrader-api.onrender.com/api/auth/signin', {
+        credentials: 'include',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

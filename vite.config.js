@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        //target: 'https://cartrader-api.onrender.com',
+        //target: 'https://artrader-api.onrender.com',
         target: 'http://localhost:3000',
         secure: false,
       },
