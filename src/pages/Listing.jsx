@@ -6,12 +6,17 @@ import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
 import {
-  FaBath,
-  FaBed,
   FaChair,
+  FaCarSide,
+  FaCertificate,
+  FaHandHolding,
+
+  //FaBath,
+  //FaBed,
+  //FaChair,
   FaMapMarkedAlt,
   FaMapMarkerAlt,
-  FaParking,
+  //FaParking,
   FaShare,
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
@@ -116,23 +121,23 @@ export default function Listing() {
             </p>
             <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaBed className='text-lg' />
+                <FaChair className='text-lg' />
                 {listing.seats > 1
                   ? `${listing.seats} seats `
                   : `${listing.seats} seat `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaBath className='text-lg' />
+                <FaCarSide className='text-lg' />
                 {listing.doors > 1
-                  ? `${listing.doors} bdoors `
+                  ? `${listing.doors} doors `
                   : `${listing.doors} door `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaParking className='text-lg' />
+                <FaCertificate className='text-lg' />
                 {listing.warranty ? 'Warranty included' : 'No warranty'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaChair className='text-lg' />
+                <FaHandHolding className='text-lg' />
                 {listing.used ? 'Used' : 'Brand new'}
               </li>
             </ul>
