@@ -5,18 +5,14 @@ import SwiperCore from 'swiper';
 import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
+import { MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
+import { GiCarDoor } from "react-icons/gi";
+import { TbCertificate, TbCertificateOff } from "react-icons/tb";
 import {
-  FaChair,
-  FaCarSide,
-  FaCertificate,
+  FaRegGem,
   FaHandHolding,
-
-  //FaBath,
-  //FaBed,
-  //FaChair,
   FaMapMarkedAlt,
   FaMapMarkerAlt,
-  //FaParking,
   FaShare,
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
@@ -121,23 +117,23 @@ export default function Listing() {
             </p>
             <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaChair className='text-lg' />
+                <MdOutlineAirlineSeatReclineNormal className='text-lg' />
                 {listing.seats > 1
                   ? `${listing.seats} seats `
                   : `${listing.seats} seat `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaCarSide className='text-lg' />
+                <GiCarDoor className='text-lg' />
                 {listing.doors > 1
                   ? `${listing.doors} doors `
                   : `${listing.doors} door `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaCertificate className='text-lg' />
+                {listing.warranty ? <TbCertificate className='text-lg' /> : <TbCertificateOff className='text-lg' />}
                 {listing.warranty ? 'Warranty included' : 'No warranty'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaHandHolding className='text-lg' />
+                {listing.used ? <FaHandHolding className='text-lg' /> : <FaRegGem className='text-lg' />}
                 {listing.used ? 'Used' : 'Brand new'}
               </li>
             </ul>
