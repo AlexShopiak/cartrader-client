@@ -4,14 +4,6 @@ import { initializeApp } from 'firebase/app';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-/*const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: 'mern-estate.firebaseapp.com',
-  projectId: 'mern-estate',
-  storageBucket: 'mern-estate.appspot.com',
-  messagingSenderId: '1078482850952',
-  appId: '1:1078482850952:web:28f19139ab77246602fb3d',
-};*/
 const firebaseConfig = {
   apiKey: "AIzaSyBLsUNPc75XO03O1faxcZLx43tMlxFZ_8Y",
   authDomain: "cartrader-23924.firebaseapp.com",
