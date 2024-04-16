@@ -7,8 +7,8 @@ export default function Search() {
   const [sidebardata, setSidebardata] = useState({
     searchTerm: '',
     type: 'all',
-    parking: false,
-    furnished: false,
+    warranty: false,
+    used: false,
     offer: false,
     sort: 'created_at',
     order: 'desc',
@@ -22,8 +22,8 @@ export default function Search() {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
     const typeFromUrl = urlParams.get('type');
-    const parkingFromUrl = urlParams.get('parking');
-    const furnishedFromUrl = urlParams.get('furnished');
+    const warrantyFromUrl = urlParams.get('warranty');
+    const usedFromUrl = urlParams.get('used');
     const offerFromUrl = urlParams.get('offer');
     const sortFromUrl = urlParams.get('sort');
     const orderFromUrl = urlParams.get('order');
@@ -31,8 +31,8 @@ export default function Search() {
     if (
       searchTermFromUrl ||
       typeFromUrl ||
-      parkingFromUrl ||
-      furnishedFromUrl ||
+      warrantyFromUrl ||
+      usedFromUrl ||
       offerFromUrl ||
       sortFromUrl ||
       orderFromUrl
@@ -40,8 +40,8 @@ export default function Search() {
       setSidebardata({
         searchTerm: searchTermFromUrl || '',
         type: typeFromUrl || 'all',
-        parking: parkingFromUrl === 'true' ? true : false,
-        furnished: furnishedFromUrl === 'true' ? true : false,
+        warranty: warrantyFromUrl === 'true' ? true : false,
+        used: usedFromUrl === 'true' ? true : false,
         offer: offerFromUrl === 'true' ? true : false,
         sort: sortFromUrl || 'created_at',
         order: orderFromUrl || 'desc',
@@ -54,10 +54,8 @@ export default function Search() {
       const searchQuery = urlParams.toString();
 
       const res = await fetch(`https://cartrader-api.onrender.com/api/listing/get?${searchQuery}`, {credentials: 'include'});
-      console.log("PARAM", searchQuery);
       const data = await res.json();
 
-      console.log("DATA", data);
       if (data.length > 8) {
         setShowMore(true);
       } else {
@@ -84,8 +82,8 @@ export default function Search() {
     }
 
     if (
-      e.target.id === 'parking' ||
-      e.target.id === 'furnished' ||
+      e.target.id === 'warranty' ||
+      e.target.id === 'used' ||
       e.target.id === 'offer'
     ) {
       setSidebardata({
@@ -109,8 +107,8 @@ export default function Search() {
     const urlParams = new URLSearchParams();
     urlParams.set('searchTerm', sidebardata.searchTerm);
     urlParams.set('type', sidebardata.type);
-    urlParams.set('parking', sidebardata.parking);
-    urlParams.set('furnished', sidebardata.furnished);
+    urlParams.set('warranty', sidebardata.warranty);
+    urlParams.set('used', sidebardata.used);
     urlParams.set('offer', sidebardata.offer);
     urlParams.set('sort', sidebardata.sort);
     urlParams.set('order', sidebardata.order);
@@ -192,26 +190,26 @@ export default function Search() {
             </div>
           </div>
           <div className='flex gap-2 flex-wrap items-center'>
-            <label className='font-semibold'>Amenities:</label>
+            <label className='font-semibold'>Specs:</label>
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='parking'
+                id='warranty'
                 className='w-5'
                 onChange={handleChange}
-                checked={sidebardata.parking}
+                checked={sidebardata.warranty}
               />
-              <span>Parking</span>
+              <span>Warranty</span>
             </div>
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='furnished'
+                id='used'
                 className='w-5'
                 onChange={handleChange}
-                checked={sidebardata.furnished}
+                checked={sidebardata.used}
               />
-              <span>Furnished</span>
+              <span>Used</span>
             </div>
           </div>
           <div className='flex items-center gap-2'>

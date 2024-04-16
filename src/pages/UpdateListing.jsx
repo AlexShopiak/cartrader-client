@@ -20,13 +20,13 @@ export default function CreateListing() {
     description: '',
     address: '',
     type: 'rent',
-    bedrooms: 1,
-    bathrooms: 1,
+    seats: 1,
+    doors: 1,
     regularPrice: 50,
     discountPrice: 0,
     offer: false,
-    parking: false,
-    furnished: false,
+    warranty: false,
+    used: false,
   });
   const [imageUploadError, setImageUploadError] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -117,8 +117,8 @@ export default function CreateListing() {
     }
 
     if (
-      e.target.id === 'parking' ||
-      e.target.id === 'furnished' ||
+      e.target.id === 'warranty' ||
+      e.target.id === 'used' ||
       e.target.id === 'offer'
     ) {
       setFormData({
@@ -230,22 +230,22 @@ export default function CreateListing() {
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='parking'
+                id='warranty'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.parking}
+                checked={formData.warranty}
               />
-              <span>Parking spot</span>
+              <span>Warranty</span>
             </div>
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='furnished'
+                id='used'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.furnished}
+                checked={formData.used}
               />
-              <span>Furnished</span>
+              <span>Used</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -262,28 +262,28 @@ export default function CreateListing() {
             <div className='flex items-center gap-2'>
               <input
                 type='number'
-                id='bedrooms'
+                id='seats'
                 min='1'
                 max='10'
                 required
                 className='p-3 border border-gray-300 rounded-lg'
                 onChange={handleChange}
-                value={formData.bedrooms}
+                value={formData.seats}
               />
-              <p>Beds</p>
+              <p>Seats</p>
             </div>
             <div className='flex items-center gap-2'>
               <input
                 type='number'
-                id='bathrooms'
+                id='doors'
                 min='1'
                 max='10'
                 required
                 className='p-3 border border-gray-300 rounded-lg'
                 onChange={handleChange}
-                value={formData.bathrooms}
+                value={formData.doors}
               />
-              <p>Baths</p>
+              <p>Doors</p>
             </div>
             <div className='flex items-center gap-2'>
               <input

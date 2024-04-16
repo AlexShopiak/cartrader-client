@@ -117,23 +117,23 @@ export default function Listing() {
             <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaBed className='text-lg' />
-                {listing.bedrooms > 1
-                  ? `${listing.bedrooms} beds `
-                  : `${listing.bedrooms} bed `}
+                {listing.seats > 1
+                  ? `${listing.seats} seats `
+                  : `${listing.seats} seat `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaBath className='text-lg' />
-                {listing.bathrooms > 1
-                  ? `${listing.bathrooms} baths `
-                  : `${listing.bathrooms} bath `}
+                {listing.doors > 1
+                  ? `${listing.doors} bdoors `
+                  : `${listing.doors} door `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
-                {listing.parking ? 'Parking spot' : 'No Parking'}
+                {listing.warranty ? 'Warranty included' : 'No warranty'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaChair className='text-lg' />
-                {listing.furnished ? 'Furnished' : 'Unfurnished'}
+                {listing.used ? 'Used' : 'Brand new'}
               </li>
             </ul>
             {currentUser && listing.userRef !== currentUser._id && !contact && (
