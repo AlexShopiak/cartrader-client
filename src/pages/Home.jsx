@@ -13,6 +13,27 @@ export default function Home() {
   SwiperCore.use([Navigation]);
   console.log(offerListings);
   useEffect(() => {
+    ////////BETA///////
+    const sendIpAddress = async () => {
+      try {
+        const response = await fetch('http://cartrader-api.onrender.com/api/visitor', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({ ipAddress: window.location.hostname }),
+        });
+        if (response.ok) {
+          const responseData = await response.json();
+          console.log('Ответ сервера:', responseData);
+        } else {
+          throw new Error('Ошибка при отправке IP-адреса на сервер');
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+      }
+    };
+
+    sendIpAddress();
+    ///////////////
     const fetchOfferListings = async () => {
       try {
         const res = await fetch('https://cartrader-api.onrender.com/api/listing/get?offer=true&limit=4',{credentials: 'include'});
