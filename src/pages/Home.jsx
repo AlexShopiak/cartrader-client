@@ -16,7 +16,7 @@ export default function Home() {
     ////////BETA///////
     const sendIpAddress = async () => {
       try {
-        const response = await fetch('http://cartrader-api.onrender.com/api/visitor', {
+        const response = await fetch('https://cartrader-api.onrender.com/api/visitor', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json'},
           body: JSON.stringify({ ipAddress: window.location.hostname }),
